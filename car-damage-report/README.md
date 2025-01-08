@@ -14,8 +14,6 @@ This tool processes damage data, groups it by `Class ID`, and dynamically popula
 - **Error Handling**: Ensures the required columns are present in the CSV file and validates the template structure.
 - **Reusable Template**: Works with any Word template that includes predefined placeholders for dynamic content.
 
----
-
 ## Requirements
 
 - **Python**: Version 3.10 or higher
