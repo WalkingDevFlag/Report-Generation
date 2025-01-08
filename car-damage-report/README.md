@@ -104,4 +104,4 @@ Damage Breakdown:
 ```
 ## License
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software as per the terms of the license.
+This project is licensed under the MIT License.
