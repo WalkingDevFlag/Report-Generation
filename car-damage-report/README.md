@@ -6,8 +6,6 @@ The Dynamic Damage Report Generator is a Python-based tool designed to create cu
 
 This tool processes damage data, groups it by `Class ID`, and dynamically populates a Word document template with detailed breakdowns of damage types, instance counts, and mask areas.
 
----
-
 ## Features
 
 - **Dynamic Content Generation**: Automatically populates a Word template with data from a CSV file.
@@ -25,7 +23,7 @@ This tool processes damage data, groups it by `Class ID`, and dynamically popula
   - `python-docx`
   - `pandas`
 
----
+
 
 ## Conda Environment Setup
 
@@ -65,12 +63,6 @@ To set up the environment and install the required dependencies:
 4. **Output**:
    - The generated Word report will be saved at the specified `output_path`.
 
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software as per the terms of the license.
-
----
 
 ## Example
 
@@ -112,3 +104,6 @@ Damage Breakdown:
   Mask Areas:
     Scratch 1: 80.0 sq. mm
 ```
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software as per the terms of the license.
