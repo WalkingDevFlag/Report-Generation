@@ -1,0 +1,4 @@
+ Conda Environment:
+ 1) conda create -n report python=3.10
+ 2) conda activate report
+ 3) pip install python-docx pandas
