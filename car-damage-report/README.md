@@ -1,79 +1,114 @@
-# README.md
+# Dynamic Damage Report Generator
 
 ## Overview
-This project is designed to generate personalized Word documents based on a predefined template and data from a CSV file. It uses the `python-docx` library to modify the Word document content dynamically and `pandas` to handle the CSV data. The generated documents are customized invitations for the "Annual Innovation Summit 2024."
+
+The Dynamic Damage Report Generator is a Python-based tool designed to create customized damage reports from a Word template and a CSV dataset. It automates the process of analyzing vehicle damage, including classification, area measurement, and reporting in a structured format.
+
+This tool processes damage data, groups it by `Class ID`, and dynamically populates a Word document template with detailed breakdowns of damage types, instance counts, and mask areas.
+
+---
 
 ## Features
-- Generate personalized Word documents for multiple recipients.
-- Replace placeholders in a Word template with values from a CSV file.
-- Easily customizable template and input data.
-- Automates batch document creation for efficient workflow.
+
+- **Dynamic Content Generation**: Automatically populates a Word template with data from a CSV file.
+- **Grouped Data Presentation**: Groups damage data by `Class ID` for better organization.
+- **Custom Formatting**: Applies bold fonts, bullet points, and specific font sizes for a professional look.
+- **Error Handling**: Ensures the required columns are present in the CSV file and validates the template structure.
+- **Reusable Template**: Works with any Word template that includes predefined placeholders for dynamic content.
+
+---
 
 ## Requirements
-The project requires the following libraries:
-- `python-docx`
-- `pandas`
 
-Additionally, it requires Python 3.10 or higher.
+- **Python**: Version 3.10 or higher
+- **Dependencies**: 
+  - `python-docx`
+  - `pandas`
+
+---
 
 ## Conda Environment Setup
-To set up the environment and install the required libraries, follow these steps:
-1. Create a new Conda environment:
-   ```bash
-   conda create -n report python=3.10
-   ```
-2. Activate the Conda environment:
-   ```bash
-   conda activate report
-   ```
-3. Install the necessary Python packages:
-   ```bash
-   pip install python-docx pandas
-   ```
+
+To set up the environment and install the required dependencies:
+
+1. **Create the environment**:
+    ```bash
+    conda create -n report python=3.10
+    ```
+2. **Activate the environment**:
+    ```bash
+    conda activate report
+    ```
+3. **Install the required packages**:
+    ```bash
+    pip install python-docx pandas
+    ```
 
 ## Usage
-1. **Prepare the Input Data:**
-   - Create a CSV file (`contacts.csv`) with the following columns:
-     - `Salutations`
-     - `First Name`
-     - `Last Name`
-     - `Last Contacted`
-     - `Company Name`
 
-2. **Create a Word Template:**
-   - Design a Word document (`template2.docx`) with placeholders enclosed in square brackets (e.g., `[Salutation]`, `[First Name]`, etc.).
+1. **Prepare the Input Files**:
+   - CSV File: Ensure your data file has the following columns:
+     - `Class ID`
+     - `Damage Type`
+     - `Area`
+   - Word Template: Use a `.docx` template with placeholders for `Damage Breakdown:` and content structure.
 
-3. **Run the Script:**
-   - Execute the Python script to generate personalized documents:
-     ```bash
-     python script.py
-     ```
-   - The script will generate one Word document per row in the CSV file, naming the output files sequentially (e.g., `report_1.docx`, `report_2.docx`, etc.).
+2. **Update Paths in the Code**:
+   - Replace the paths for `csv_path`, `template_path`, and `output_path` in the `if __name__ == '__main__'` section with your file locations.
 
-4. **Verify Output:**
-   - Check the output directory for the generated Word documents.
+3. **Run the Script**:
+    ```bash
+    python script_name.py
+    ```
+   Replace `script_name.py` with the name of your Python file.
 
-## Example
-**Input CSV (`contacts.csv`):**
-```csv
-Salutations,First Name,Last Name,Last Contacted,Company Name
-Mr.,John,Doe,2024-12-01,Acme Corp
-Ms.,Jane,Smith,2024-11-20,Innovate LLC
-```
+4. **Output**:
+   - The generated Word report will be saved at the specified `output_path`.
 
-**Template Word Document (`template2.docx`):**
-```text
-Annual Innovation Summit 2024
-Dear [Salutation] [First Name] [Last Name],
-We hope this message finds you well. It’s been wonderful collaborating with [Company Name] since [Last Contacted], and we are excited to continue our journey together.
-```
-
-**Generated Document (`report_1.docx`):**
-```text
-Annual Innovation Summit 2024
-Dear Mr. John Doe,
-We hope this message finds you well. It’s been wonderful collaborating with Acme Corp since 2024-12-01, and we are excited to continue our journey together.
-```
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software as per the terms of the license.
+
+---
+
+## Example
+
+### Input CSV
+| Class ID | Damage Type | Area      |
+|----------|-------------|-----------|
+| 1        | Dent        | 150.50    |
+| 1        | Dent        | 200.75    |
+| 2        | Scratch     | 80.00     |
+
+### Word Template
+```
+Car Damage Report
+Introduction:
+This report provides an overview of the dents and scratches identified on the vehicle. The analysis includes the classification of damage, the area affected, and visual documentation of the damages.
+
+Damage Breakdown:
+• Class ID [Class ID]: [Damage Type]
+• Number of Instances: [Number of Instances]
+• Mask Areas:
+• [Damage Type] [Instance Number]: [Area in sq. mm]
+```
+
+### Generated Report
+```
+Car Damage Report
+Introduction:
+This report provides an overview of the dents and scratches identified on the vehicle. The analysis includes the classification of damage, the area affected, and visual documentation of the damages.
+
+Damage Breakdown:
+• Class ID 1: Dent
+  Number of Instances: 2
+  Mask Areas:
+    Dent 1: 150.5 sq. mm
+    Dent 2: 200.75 sq. mm
+
+• Class ID 2: Scratch
+  Number of Instances: 1
+  Mask Areas:
+    Scratch 1: 80.0 sq. mm
+```
