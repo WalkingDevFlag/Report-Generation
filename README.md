@@ -76,4 +76,4 @@ We hope this message finds you well. It’s been wonderful collaborating with Ac
 ```
 
 ## License
-This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the license terms. See the `LICENSE` file for details.
+This project is licensed under the MIT License.
