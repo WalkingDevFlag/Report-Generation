@@ -1,79 +1,53 @@
 # Report Generation
 
 ## Overview
-This project is designed to generate personalized Word documents based on a predefined template and data from a CSV file. It uses the `python-docx` library to modify the Word document content dynamically and `pandas` to handle the CSV data. The generated documents are customized invitations for the "Annual Innovation Summit 2024."
+This project is designed to automate the generation of reports using Python. It leverages various libraries to create dynamic documents that can be customized based on user input or data sources. The project includes three main folders: `src`, `car-damage-report`, and `Better Template`, each serving a specific purpose in report generation.
 
 ## Features
-- Generate personalized Word documents for multiple recipients.
-- Replace placeholders in a Word template with values from a CSV file.
-- Easily customizable template and input data.
-- Automates batch document creation for efficient workflow.
+- **Dynamic Report Generation**: Generate reports by replacing placeholders with actual data.
+- **Car Damage Reporting**: Create reports specifically tailored for car damage assessments, adapting to various dent conditions.
+- **Invoice Generation**: Utilize a more sophisticated template for generating invoices that include tabular data.
+- **User-Friendly Setup**: Easy environment setup using Conda.
 
 ## Requirements
-The project requires the following libraries:
-- `python-docx`
-- `pandas`
+Before running the project, ensure you have the following Python packages installed:
 
-Additionally, it requires Python 3.10 or higher.
+- `python-docx`: For creating and editing Word documents.
+- `pandas`: For data manipulation and analysis.
+- `faker`: For generating fake data for testing purposes.
+- `docx`: For handling .docx files.
+- `docx2pdf`: For converting .docx files to PDF format.
 
 ## Conda Environment Setup
-To set up the environment and install the required libraries, follow these steps:
+To set up the Conda environment for this project, follow these steps:
+
 1. Create a new Conda environment:
    ```bash
    conda create -n report python=3.10
    ```
-2. Activate the Conda environment:
+
+2. Activate the newly created environment:
    ```bash
    conda activate report
    ```
-3. Install the necessary Python packages:
+
+3. Install the required packages:
    ```bash
-   pip install python-docx pandas
+   conda install python-docx pandas faker docx docx2pdf
    ```
 
 ## Usage
-1. **Prepare the Input Data:**
-   - Create a CSV file (`contacts.csv`) with the following columns:
-     - `Salutations`
-     - `First Name`
-     - `Last Name`
-     - `Last Contacted`
-     - `Company Name`
+After setting up your environment and installing the necessary packages, you can start using the project. 
 
-2. **Create a Word Template:**
-   - Design a Word document (`template2.docx`) with placeholders enclosed in square brackets (e.g., `[Salutation]`, `[First Name]`, etc.).
+1. Navigate to the desired folder based on your needs:
+   - **`src`**: Use this folder for basic report generation by replacing placeholders in templates.
+   - **`car-damage-report`**: This folder contains scripts specifically designed to generate reports based on car damage assessments that dynamically change according to the number and type of dents.
+   - **`Better Template`**: This folder includes templates and scripts for generating invoices with tabular data.
 
-3. **Run the Script:**
-   - Execute the Python script to generate personalized documents:
-     ```bash
-     python script.py
-     ```
-   - The script will generate one Word document per row in the CSV file, naming the output files sequentially (e.g., `report_1.docx`, `report_2.docx`, etc.).
-
-4. **Verify Output:**
-   - Check the output directory for the generated Word documents.
-
-## Example
-**Input CSV (`contacts.csv`):**
-```csv
-Salutations,First Name,Last Name,Last Contacted,Company Name
-Mr.,John,Doe,2024-12-01,Acme Corp
-Ms.,Jane,Smith,2024-11-20,Innovate LLC
-```
-
-**Template Word Document (`template2.docx`):**
-```text
-Annual Innovation Summit 2024
-Dear [Salutation] [First Name] [Last Name],
-We hope this message finds you well. It’s been wonderful collaborating with [Company Name] since [Last Contacted], and we are excited to continue our journey together.
-```
-
-**Generated Document (`report_1.docx`):**
-```text
-Annual Innovation Summit 2024
-Dear Mr. John Doe,
-We hope this message finds you well. It’s been wonderful collaborating with Acme Corp since 2024-12-01, and we are excited to continue our journey together.
-```
+2. Run the appropriate script in your terminal or command prompt:
+   ```bash
+   python main.py
+   ```
 
 ## License
 This project is licensed under the MIT License.
