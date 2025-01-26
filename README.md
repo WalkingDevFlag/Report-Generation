@@ -49,5 +49,10 @@ After setting up your environment and installing the necessary packages, you can
    python main.py
    ```
 
+## Issues
+Currently, there are known issues regarding the replacement of certain placeholders in the invoice generation process:
+
+- **Invoice Number and Date Replacement**: The system may not successfully replace the invoice number and date placeholders in some cases. This is a known limitation that we are actively working to resolve.
+
 ## License
 This project is licensed under the MIT License.
